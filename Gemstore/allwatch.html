@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+
+  <body ng-controller="StoreController as store">
+   <h4 ><a class='pull-left' href="../index.html">    Back</a></h4>   
+      <div id="header-wrapper">
+  <div id="header" class="container">
+    <div id="logo" style="background-color:#DCDCDC;">
+        
+      <h1>Premium Watches</h1>
+        
+</div>
+      </div>
+         
+ 
+    <header>
+      <h1 class="text-center">Our Watch Collections</h1>
+    </header>
+
+   
+    <div class="list-group" >
+     
+        <div style="background-color:#99CCFF;">.</div>
+      <div class="list-group-item" ng-repeat="product in store.products" >
+        <h3>{{product.name}} </h3>
+
+       
+        <div ng-controller="GalleryController as gallery"  ng-show="product.images.length">
+          <div class="img-wrap">
+            <img ng-src="{{product.images[gallery.current]}}" width='350px'/>
+          </div>
+          <ul class="img-thumbnails clearfix">
+            <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+              <img ng-src="{{image}}" width='200px'/>
+            </li>
+          </ul>
+        </div>
+<h3>Price : {{product.price | currency}}</h3>
+       
+        <product-tabs></product-tabs>
+          <button type="button" class="btn btn-success">Buy Now</button><br/><br/>
+<div style="background-color:#99CCFF;">.</div>
+      </div>
+          </div>
+  </body>
+</html>
